@@ -19,3 +19,6 @@ Live site: https://sherwood.webart.work
 
 ## Notes
 The page explicitly states several details are unconfirmed: room count, categories, amenities, pricing and check-in times for accommodation; exact banquet hall capacity; and that gallery photos are illustrative rather than actual venue photos. Visitors are told to confirm these directly with the venue by phone.
+
+## Forms
+Live HotelOS forms (hotel `kp-sherwood`): `stay-request` (after the accommodation section) and `event-request` (former contact/planner section; event type select, guest count goes into the message). Phone is the only required field.

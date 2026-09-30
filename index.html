@@ -48,6 +48,15 @@
     .event-card:first-child,.hero-place{transition:background-size 1.1s cubic-bezier(.16,.8,.3,1)}
     @supports(background-attachment:fixed){@media(min-width:1001px) and (prefers-reduced-motion:no-preference){.live,.wedding,.final{background-attachment:fixed}}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.reveal-item{opacity:1;transform:none;transition:none}.btn{transition:none}.hero-media video{transform:none!important}.food-photo,.stay-photo img,.gallery figure img{transition:none}}
+    .request-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}.request-phone{display:inline-block;margin-top:8px;font:600 1.8rem var(--serif);color:var(--wine)}.planner .request-phone{color:var(--gold)}.request-address{margin:16px 0 0;font-size:.8rem;color:var(--muted)}.planner .request-address{color:#eadde0}.request-address a{font-weight:700;color:inherit;text-decoration:underline}
+    .request-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px;padding:40px;background:#fff;border:1px solid var(--line)}.planner .request-form{background:linear-gradient(145deg,#ffffff0b,transparent);border-color:#ffffff2f}
+    .field{display:grid;gap:7px;align-content:start;min-width:0;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--forest)}.field.full{grid-column:1/-1}.field small{font-size:.76rem;font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted)}.planner .field{color:#f7f1e5}.planner .field small{color:#e0cdd2}
+    .field input,.field select,.field textarea{width:100%;min-height:50px;padding:12px 16px;border:1px solid var(--line);border-radius:0;background:var(--cream);color:var(--ink);font:500 1rem var(--sans);letter-spacing:0;text-transform:none}.field textarea{min-height:110px;resize:vertical}.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:2px solid var(--gold);outline-offset:1px}.field [aria-invalid=true]{border-color:var(--wine);background:#fbf0f2}
+    .planner .field input,.planner .field select,.planner .field textarea{background:#ffffff14;border-color:#ffffff45;color:#fff;color-scheme:dark}.planner .field select option{color:var(--ink);background:#fff}.planner .field [aria-invalid=true]{border-color:#f6c1cd;background:#ffffff22}
+    [data-error-for]{font-size:.8rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--wine)}.planner [data-error-for]{color:#ffd3dc}[data-error-for]:empty{display:none}.trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .request-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:18px}.request-foot .btn[disabled]{opacity:.6;cursor:wait;transform:none}.request-note{flex:1;min-width:200px;margin:0;color:var(--muted);font-size:.76rem}.planner .request-note{color:#e0cdd2}
+    [data-status]{grid-column:1/-1;margin:0;padding:16px 18px;border-left:3px solid var(--gold);background:var(--sand);font-size:.92rem}.planner [data-status]{background:#ffffff18;color:#fff}[data-status]:empty{display:none}[data-status][data-state=error]{border-color:var(--wine);background:#fbf0f2;color:var(--ink)}[data-status] a{font-weight:700;text-decoration:underline}
+    @media(max-width:960px){.request-grid{grid-template-columns:1fr;gap:40px}}@media(max-width:620px){.request-form{grid-template-columns:1fr;padding:24px 18px}}
   </style>
   <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Restaurant","name":"Шервуд Stream","url":"https://sherwood.webart.work/","image":"https://sherwood.webart.work/images/cuisine-table.jpg","telephone":"+380673803742","servesCuisine":["Ukrainian","European"],"address":{"@type":"PostalAddress","addressLocality":"Слобідка-Кульчієвецька","addressCountry":"UA"}},{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Шервуд Stream","url":"https://sherwood.webart.work/","image":"https://sherwood.webart.work/images/guest-room.jpg","telephone":"+380673803742","address":{"@type":"PostalAddress","addressLocality":"Слобідка-Кульчієвецька","addressCountry":"UA"}}]</script>
 </head>
@@ -55,23 +64,24 @@
   <a class="skip" href="#main">До основного вмісту</a>
   <header id="siteHeader"><div class="topbar"><div class="wrap topbar-inner"><a href="tel:+380673803742">+38 067 380 37 42</a><span class="topbar-loc">Слобідка-Кульчієвецька</span></div></div><div class="wrap nav"><a class="logo" href="#top"><strong>ШЕРВУД <span>Stream</span></strong><small>Готель · Ресторан · Події</small></a><nav class="links" id="mainNav" aria-label="Основна навігація"><a href="#events">Події</a><a href="#restaurant">Ресторан</a><a href="#live">Жива музика</a><a href="#stay">Проживання</a><a href="#gallery">Галерея</a><a href="#contacts">Контакти</a></nav></div></header>
   <main id="main">
-    <section class="hero"><div class="hero-media"><video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/evening-banquet.jpg"><source src="hero-bg.mp4" type="video/mp4"></video></div><div class="wrap hero-inner"><div class="hero-copy"><p class="eyebrow">Готель · Ресторан · Події</p><h1>Шервуд <span>Stream</span></h1><h2>Святкуйте. Відпочивайте. Залишайтеся.</h2><p>Українська та європейська кухня, жива музика, банкетний формат і проживання у Слобідці-Кульчієвецькій.</p><div class="actions"><a class="btn gold" href="#planner">Запланувати подію</a><a class="btn light" href="#stay">Дізнатися про проживання</a><a class="btn light" href="tel:+380673803742">Зателефонувати</a></div></div><aside class="hero-place"><b>Слобідка-Кульчієвецька</b><span>Заміський формат у Слобідці-Кульчієвецькій.</span><a href="https://www.google.com/maps/search/?api=1&query=Шервуд+Stream,+Слобідка-Кульчієвецька" target="_blank" rel="noopener">Показати на карті →</a></aside></div></section>
+    <section class="hero"><div class="hero-media"><video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="images/evening-banquet.jpg"><source src="hero-bg.mp4" type="video/mp4"></video></div><div class="wrap hero-inner"><div class="hero-copy"><p class="eyebrow">Готель · Ресторан · Події</p><h1>Шервуд <span>Stream</span></h1><h2>Святкуйте. Відпочивайте. Залишайтеся.</h2><p>Українська та європейська кухня, жива музика, банкетний формат і проживання у Слобідці-Кульчієвецькій.</p><div class="actions"><a class="btn gold" href="#event-request">Запланувати подію</a><a class="btn light" href="#stay">Дізнатися про проживання</a><a class="btn light" href="tel:+380673803742">Зателефонувати</a></div></div><aside class="hero-place"><b>Слобідка-Кульчієвецька</b><span>Заміський формат у Слобідці-Кульчієвецькій.</span><a href="https://www.google.com/maps/search/?api=1&query=Шервуд+Stream,+Слобідка-Кульчієвецька" target="_blank" rel="noopener">Показати на карті →</a></aside></div></section>
     <div class="wrap facts"><div class="fact"><b>Події</b><span>банкетний формат</span></div><div class="fact"><b>Українська</b><span>українська кухня</span></div><div class="fact"><b>Європейська</b><span>європейська кухня</span></div><div class="fact"><b>Наживо</b><span>жива музика</span></div><div class="fact"><b>Проживання</b><span>можливість проживання</span></div></div>
-    <section class="section"><div class="wrap intro"><div class="intro-mark reveal"></div><div class="reveal"><p class="eyebrow">Один простір</p><h2 class="title">Увесь вечір, без зайвих переїздів</h2><p class="lead">У «Шервуд Stream» можна поєднати ресторан, банкет, живу музику та проживання. Це особливо зручно, коли гості не хочуть завершувати вечір поїздкою до іншого готелю.</p><div class="intro-list"><div>Ресторанний формат</div><div>Банкетний зал</div><div>Жива музика</div><div>Проживання</div></div><a class="btn" href="#planner">Розповісти про подію</a></div></div></section>
-    <section class="section stay" id="stay"><div class="wrap stay-grid"><div class="stay-photo"><img src="images/guest-room.jpg" alt="Ілюстративний готельний номер; актуальні номери уточнюйте в комплексі" loading="lazy"></div><div><p class="eyebrow">Проживання</p><h2 class="title">Після свята не обов’язково їхати</h2><p class="lead">«Шервуд Stream» надає послуги проживання. Це дозволяє поєднати подію, ресторан і ніч в одному комплексі.</p><div class="stay-points"><div>Проживання для гостей події</div><div>Ранок після святкування на місці</div><div>Комплексна подія без окремого готелю</div></div><div class="stay-note">Кількість номерів, категорії, оснащення, ціни та час заїзду не підтверджені. Фото ілюстративне, уточнюйте актуальні варіанти безпосередньо.</div><div class="actions"><a class="btn" href="tel:+380673803742">Запитати про номери</a></div></div></div></section>
-    <section class="section events" id="events"><div class="wrap"><div class="events-head"><div><p class="eyebrow">Святкуйте</p><h2 class="title">Ваш привід, ваш формат</h2></div><p class="lead">Розкажіть про подію, дату та гостей: деталі формату підкажуть безпосередньо в комплексі.</p></div><div class="event-grid reveal-group"><article class="event-card reveal-item"><span>01</span><h3>Весілля</h3><p>Святкування з родиною та друзями, рестораном, музикою і можливістю залишитися на ніч.</p></article><article class="event-card reveal-item"><span>02</span><h3>День народження</h3><p>Велика або камерна компанія.</p></article><article class="event-card reveal-item"><span>03</span><h3>Ювілей</h3><p>Ресторанний вечір із живою музикою.</p></article><article class="event-card reveal-item"><span>04</span><h3>Корпоратив</h3><p>Подія для команди або компанії.</p></article><article class="event-card reveal-item"><span>05</span><h3>Родинне свято</h3><p>Коли хочеться зібрати всіх разом.</p></article></div><div class="actions"><a class="btn" href="#planner">Запланувати свято</a></div></div></section>
-    <section class="section banquet"><div class="wrap banquet-grid"><div><p class="eyebrow">Банкетний зал</p><h2 class="title">Просторий банкетний зал для великих подій</h2><p class="lead">Наявність банкетного залу підтверджена. Точну максимальну місткість, схему розсадки, танцпол, звук і світло уточнюйте під конкретну дату.</p><div class="actions"><a class="btn gold" href="#planner">Уточнити доступність</a><a class="btn light" href="tel:+380673803742">Зателефонувати</a></div></div><div class="hall-frame"></div></div></section>
+    <section class="section"><div class="wrap intro"><div class="intro-mark reveal"></div><div class="reveal"><p class="eyebrow">Один простір</p><h2 class="title">Увесь вечір, без зайвих переїздів</h2><p class="lead">У «Шервуд Stream» можна поєднати ресторан, банкет, живу музику та проживання. Це особливо зручно, коли гості не хочуть завершувати вечір поїздкою до іншого готелю.</p><div class="intro-list"><div>Ресторанний формат</div><div>Банкетний зал</div><div>Жива музика</div><div>Проживання</div></div><a class="btn" href="#event-request">Розповісти про подію</a></div></div></section>
+    <section class="section stay" id="stay"><div class="wrap stay-grid"><div class="stay-photo"><img src="images/guest-room.jpg" alt="Ілюстративний готельний номер; актуальні номери уточнюйте в комплексі" loading="lazy"></div><div><p class="eyebrow">Проживання</p><h2 class="title">Після свята не обов’язково їхати</h2><p class="lead">«Шервуд Stream» надає послуги проживання. Це дозволяє поєднати подію, ресторан і ніч в одному комплексі.</p><div class="stay-points"><div>Проживання для гостей події</div><div>Ранок після святкування на місці</div><div>Комплексна подія без окремого готелю</div></div><div class="stay-note">Кількість номерів, категорії, оснащення, ціни та час заїзду не підтверджені. Фото ілюстративне, уточнюйте актуальні варіанти безпосередньо.</div><div class="actions"><a class="btn" href="#stay-request">Запит на проживання</a><a class="btn" style="background:transparent;color:var(--forest)" href="tel:+380673803742">Запитати про номери</a></div></div></div></section>
+    <section class="section" id="stay-request"><div class="wrap request-grid"><div class="reveal"><p class="eyebrow">Запит на проживання</p><h2 class="title">Залиште номер, ми передзвонимо</h2><p class="lead">Вкажіть телефон і, за бажанням, дати та кількість гостей. У комплексі зателефонують, щоб підтвердити вільні номери й вартість.</p><a class="request-phone" href="tel:+380673803742">+38 067 380 37 42</a></div><form class="request-form reveal" data-hotelos data-form-name="Запит на проживання" novalidate><label class="field full">Телефон<small>Обов’язково, щоб ми могли передзвонити</small><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="stay-phone-error"><span id="stay-phone-error" data-error-for="phone"></span></label><label class="field">Ім’я<input name="name" type="text" autocomplete="name" maxlength="200"></label><label class="field">Гостей<input name="guests" type="number" min="1" max="50" inputmode="numeric"></label><label class="field">Дата заїзду<input name="checkIn" type="date"></label><label class="field">Дата виїзду<input name="checkOut" type="date" aria-describedby="stay-checkout-error"><span id="stay-checkout-error" data-error-for="checkOut"></span></label><label class="field full">Побажання<textarea name="message" maxlength="5000"></textarea></label><label class="trap" aria-hidden="true">Не заповнюйте<input name="website" type="text" tabindex="-1" autocomplete="off"></label><div class="request-foot"><button class="btn" type="submit">Надіслати запит</button><p class="request-note">Номер використаємо лише для відповіді на цей запит.</p></div><p data-status role="status" aria-live="polite"></p></form></div></section>
+    <section class="section events" id="events"><div class="wrap"><div class="events-head"><div><p class="eyebrow">Святкуйте</p><h2 class="title">Ваш привід, ваш формат</h2></div><p class="lead">Розкажіть про подію, дату та гостей: деталі формату підкажуть безпосередньо в комплексі.</p></div><div class="event-grid reveal-group"><article class="event-card reveal-item"><span>01</span><h3>Весілля</h3><p>Святкування з родиною та друзями, рестораном, музикою і можливістю залишитися на ніч.</p></article><article class="event-card reveal-item"><span>02</span><h3>День народження</h3><p>Велика або камерна компанія.</p></article><article class="event-card reveal-item"><span>03</span><h3>Ювілей</h3><p>Ресторанний вечір із живою музикою.</p></article><article class="event-card reveal-item"><span>04</span><h3>Корпоратив</h3><p>Подія для команди або компанії.</p></article><article class="event-card reveal-item"><span>05</span><h3>Родинне свято</h3><p>Коли хочеться зібрати всіх разом.</p></article></div><div class="actions"><a class="btn" href="#event-request">Запланувати свято</a></div></div></section>
+    <section class="section banquet"><div class="wrap banquet-grid"><div><p class="eyebrow">Банкетний зал</p><h2 class="title">Просторий банкетний зал для великих подій</h2><p class="lead">Наявність банкетного залу підтверджена. Точну максимальну місткість, схему розсадки, танцпол, звук і світло уточнюйте під конкретну дату.</p><div class="actions"><a class="btn gold" href="#event-request">Уточнити доступність</a><a class="btn light" href="tel:+380673803742">Зателефонувати</a></div></div><div class="hall-frame"></div></div></section>
     <section class="restaurant" id="restaurant"><div class="food-photo reveal" role="img" aria-label="Ілюстративний святковий стіл з українськими та європейськими стравами"></div><div class="food-copy reveal"><p class="eyebrow">Кухня</p><h2 class="title">Українська та європейська кухня</h2><p class="lead">Два підтверджені напрями кухні для ресторанної вечері та банкетного формату. Актуальне меню, ціни й варіанти подачі уточнюйте під час планування.</p><div class="cuisine-row"><div class="cuisine-card"><h3>Українська</h3><p>Знайомі традиційні смаки для великого столу.</p></div><div class="cuisine-card"><h3>Європейська</h3><p>Ресторанний напрям для різних форматів вечері.</p></div></div><div class="actions"><a class="btn" href="tel:+380673803742">Запитати меню</a></div></div></section>
     <section class="live" id="live"><div class="wrap live-copy"><p class="eyebrow">Наживо</p><h2 class="title">Вечір звучить краще наживо</h2><p class="lead">Жива музика, один із підтверджених сервісів «Шервуд Stream». Розклад, склад музикантів, жанри та умови для банкету уточнюйте у комплексу.</p><div class="soundline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><a class="btn gold" href="tel:+380673803742">Дізнатися про живу музику</a></div></section>
     <section class="section timeline"><div class="wrap"><p class="eyebrow">Хід вечора</p><h2 class="title">Як може пройти ваш вечір</h2><div class="timeline-grid reveal-group"><article class="moment reveal-item"><time>17:00</time><h3>Зустріч</h3><p>Гості збираються.</p></article><article class="moment reveal-item"><time>18:00</time><h3>Банкет</h3><p>Початок вечері.</p></article><article class="moment reveal-item"><time>20:00</time><h3>Наживо</h3><p>Музична частина.</p></article><article class="moment reveal-item"><time>22:00</time><h3>Свято</h3><p>Танці та спілкування.</p></article><article class="moment reveal-item"><time>Пізніше</time><h3>Ніч</h3><p>За потреби гості залишаються.</p></article></div><p class="gallery-note">Сценарій і час наведені як приклад; реальний перебіг події узгоджується окремо.</p></div></section>
-    <section class="wedding"><div class="wrap wedding-copy"><p class="eyebrow">Весілля</p><h2 class="title">День, який хочеться продовжити</h2><p class="lead">Весілля природно поєднує банкетний зал, ресторан, живу музику та проживання. Формат і доступність узгоджуються під вашу дату.</p><a class="btn gold" href="#planner">Запланувати весілля</a></div></section>
+    <section class="wedding"><div class="wrap wedding-copy"><p class="eyebrow">Весілля</p><h2 class="title">День, який хочеться продовжити</h2><p class="lead">Весілля природно поєднує банкетний зал, ресторан, живу музику та проживання. Формат і доступність узгоджуються під вашу дату.</p><a class="btn gold" href="#event-request">Запланувати весілля</a></div></section>
     <section class="section location" id="contacts"><div class="wrap location-grid"><div><p class="eyebrow">Локація</p><h2 class="title">Де ми знаходимося</h2><p class="lead">«Шервуд Stream» розташований у Слобідці-Кульчієвецькій, а не в самому Кам’янці-Подільському. Посилання нижче відкриває пошук Google Maps.</p><div class="actions"><a class="btn gold" href="https://www.google.com/maps/search/?api=1&query=Шервуд+Stream,+Слобідка-Кульчієвецька" target="_blank" rel="noopener">Прокласти маршрут</a></div></div><div class="map-card map-embed"><iframe src="https://www.google.com/maps?q=Шервуд+Stream,+Слобідка-Кульчієвецька&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Шервуд Stream на карті"></iframe></div></div></section>
-    <section class="section planner" id="planner"><div class="wrap planner-grid"><div><p class="eyebrow">Контакти</p><h2 class="title">Зв'яжіться з нами</h2><p class="lead">Розкажіть про подію, дату та кількість гостей по телефону, і в комплексі підкажуть можливий формат.</p><a href="tel:+380673803742" style="font:600 1.8rem var(--serif);color:var(--gold)">+38 067 380 37 42</a></div><div class="contact-block"><span class="pin">⌖</span><strong>Слобідка-Кульчієвецька</strong><a class="btn gold" href="tel:+380673803742">+38 067 380 37 42</a><a class="btn light" href="https://www.google.com/maps/search/?api=1&query=Шервуд+Stream,+Слобідка-Кульчієвецька" target="_blank" rel="noopener">Показати на карті</a></div></div></section>
+    <section class="section planner" id="event-request"><div class="wrap request-grid"><div><p class="eyebrow">Запит на подію</p><h2 class="title">Розкажіть про ваше свято</h2><p class="lead">Вкажіть телефон, бажану дату й привід. У комплексі зателефонують, щоб обговорити банкетний зал, меню, живу музику та проживання для гостей.</p><a class="request-phone" href="tel:+380673803742">+38 067 380 37 42</a><p class="request-address">Слобідка-Кульчієвецька · <a href="https://www.google.com/maps/search/?api=1&query=Шервуд+Stream,+Слобідка-Кульчієвецька" target="_blank" rel="noopener">Показати на карті</a></p></div><form class="request-form" data-hotelos data-form-name="Запит на подію" novalidate><label class="field full">Телефон<small>Обов’язково, щоб ми могли передзвонити</small><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="event-phone-error"><span id="event-phone-error" data-error-for="phone"></span></label><label class="field">Ім’я<input name="name" type="text" autocomplete="name" maxlength="200"></label><label class="field">Бажана дата<input name="date" type="date"></label><label class="field full">Подія<select name="service"><option value="">Ще не вирішили</option><option>Весілля</option><option>День народження</option><option>Ювілей</option><option>Корпоратив</option><option>Родинне свято</option></select></label><label class="field full">Кількість гостей і побажання<textarea name="message" maxlength="5000"></textarea></label><label class="trap" aria-hidden="true">Не заповнюйте<input name="website" type="text" tabindex="-1" autocomplete="off"></label><div class="request-foot"><button class="btn gold" type="submit">Надіслати запит</button><p class="request-note">Номер використаємо лише для відповіді на цей запит.</p></div><p data-status role="status" aria-live="polite"></p></form></div></section>
     <section class="section" id="gallery"><div class="wrap"><p class="eyebrow">Галерея</p><h2 class="title">Шервуд Stream у деталях</h2><div class="gallery reveal-group"><figure class="reveal-item"><img src="images/evening-banquet.jpg" alt="Ілюстративна атмосфера вечірнього банкету" loading="lazy"></figure><figure class="reveal-item"><img src="images/cuisine-table.jpg" alt="Ілюстративний святковий стіл" loading="lazy"></figure><div class="gallery-card reveal-item">Події<br>і жива музика</div><figure class="reveal-item"><img src="images/guest-room.jpg" alt="Ілюстративний готельний номер" loading="lazy"></figure><div class="gallery-card wine reveal-item">Ресторан<br>і проживання</div></div><p class="gallery-note">Зображення ілюстративні та передають напрям оформлення сторінки. Актуальний вигляд залу, страв і номерів уточнюйте у комплексу.</p></div></section>
-    <section class="final"><div class="wrap"><h2 class="title">Зберіть усіх разом і не поспішайте додому</h2><p>Ресторан, жива музика та проживання в одному комплексі.</p><div class="actions"><a class="btn gold" href="#planner">Запланувати подію</a><a class="btn light" href="tel:+380673803742">+38 067 380 37 42</a></div><small>Українська кухня · Європейська кухня · Жива музика · Проживання</small></div></section>
+    <section class="final"><div class="wrap"><h2 class="title">Зберіть усіх разом і не поспішайте додому</h2><p>Ресторан, жива музика та проживання в одному комплексі.</p><div class="actions"><a class="btn gold" href="#event-request">Запланувати подію</a><a class="btn light" href="tel:+380673803742">+38 067 380 37 42</a></div><small>Українська кухня · Європейська кухня · Жива музика · Проживання</small></div></section>
   </main>
   <footer><div class="wrap"><div class="foot"><div class="foot-brand"><a class="logo" href="#top"><strong>ШЕРВУД <span>Stream</span></strong><small>Готель · Ресторан · Події</small></a><p>Святкуйте. Відпочивайте.<br>Залишайтеся.</p></div><div><h4>Події</h4><a href="#events">Весілля</a><a href="#events">Дні народження</a><a href="#events">Корпоративи</a></div><div><h4>Ресторан</h4><a href="#restaurant">Українська кухня</a><a href="#restaurant">Європейська кухня</a></div><div><h4>Розваги</h4><a href="#live">Жива музика</a><a href="#stay">Проживання</a></div><div><h4>Інформація</h4><a href="#gallery">Галерея</a><a href="#contacts">Контакти</a><a href="https://www.google.com/maps/search/?api=1&query=Шервуд+Stream,+Слобідка-Кульчієвецька" target="_blank" rel="noopener">Карта</a></div></div><div class="copyright">© Шервуд Stream · Слобідка-Кульчієвецька · +38 067 380 37 42 · Місткість, меню, проживання та музичну програму підтверджуйте перед подією.</div></div></footer>
-  <div class="mobile-cta"><a class="btn" href="tel:+380673803742">Зателефонувати</a><a class="btn" href="#planner">Запланувати подію</a></div>
+  <div class="mobile-cta"><a class="btn" href="tel:+380673803742">Зателефонувати</a><a class="btn" href="#event-request">Запланувати подію</a></div>
   <script>
     (function(){const header=document.getElementById('siteHeader');function onScroll(){header.classList.toggle('scrolled',window.scrollY>40)}onScroll();window.addEventListener('scroll',onScroll,{passive:true})})();
     const observer=new IntersectionObserver(entries=>entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.1});document.querySelectorAll('.reveal,.reveal-group').forEach(el=>observer.observe(el));
@@ -85,6 +95,153 @@
         addEventListener('scroll',()=>{const r=hero.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)heroMedia.style.transform=`translateY(${scrollY*.28}px)`},{passive:true});
       }
     }
+  </script>
+  <script type="module">
+// HotelOS site forms. Paste this whole block into the site's index.html as an inline module
+// script right before the closing body tag, and set the three constants below. Never put a
+// literal closing script tag inside this file: it would end the inline script early.
+// Contract (hotelos.webart.work/CRM.md → Submission data contract, firestore.rules):
+// - every form is <form data-hotelos data-form-name="…" novalidate> inside a <section id="{formId}">;
+//   the section id IS the formId (stable slug, e.g. stay-request, sauna-request) and the CRM
+//   links to SITE + '#' + formId, so the link scrolls to the start of that section;
+// - fields are matched by name: phone (required), name, email, message, checkIn, checkOut, guests,
+//   roomType, date, time, service; a [data-genders] box renders one select per guest (hostels);
+// - errors go to [data-error-for="<name>"], the result to [data-status]; `website` is a honeypot.
+const HOTEL_ID = 'kp-sherwood'; // Firestore hotels/{id}: 'kp-' + site folder name
+const SITE = 'https://sherwood.webart.work/'; // from the site's CNAME
+const PHONE = '+38 067 380 37 42'; // shown when sending fails
+
+const FIREBASE = {
+	apiKey: 'AIzaSyBeSB5EuC4BBSpmCGA3Pjk7dD_JV2SdcSQ',
+	authDomain: 'hotel-upwork.firebaseapp.com',
+	projectId: 'hotel-upwork',
+	appId: '1:40129364672:web:c9659550ebf0f1d8a36325',
+};
+const SDK = 'https://www.gstatic.com/firebasejs/12.19.0/';
+const TEXT_FIELDS = ['name', 'email', 'message', 'checkIn', 'checkOut', 'date', 'time', 'roomType', 'service'];
+const today = new Date(Date.now() - new Date().getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+
+let db;
+async function firestore() {
+	if (db) return db;
+	// Loaded on first submit only, so the page itself stays light.
+	const [{ initializeApp }, lite] = await Promise.all([import(SDK + 'firebase-app.js'), import(SDK + 'firebase-firestore-lite.js')]);
+	db = { lite, store: lite.getFirestore(initializeApp(FIREBASE)) };
+	return db;
+}
+
+function setup(form) {
+	const formId = form.closest('section[id]')?.id;
+	if (!formId) return console.error('HotelOS form needs a parent <section id="formId">', form);
+	const field = (name) => form.elements.namedItem(name);
+	const statusEl = form.querySelector('[data-status]');
+	const submit = form.querySelector('[type=submit]');
+	const submitLabel = submit.textContent;
+	const gendersBox = form.querySelector('[data-genders]');
+
+	for (const name of ['checkIn', 'checkOut', 'date']) if (field(name)) field(name).min = today;
+	if (field('checkIn') && field('checkOut')) {
+		field('checkIn').addEventListener('change', () => {
+			const checkIn = field('checkIn').value;
+			field('checkOut').min = checkIn || today;
+			if (field('checkOut').value && field('checkOut').value <= checkIn) field('checkOut').value = '';
+		});
+	}
+
+	// Hostels: one gender select per guest, kept in sync with the guests count.
+	function renderGenders() {
+		if (!gendersBox) return;
+		const count = Math.min(Math.max(parseInt(field('guests')?.value, 10) || 1, 1), 20);
+		const current = [...gendersBox.querySelectorAll('select')].map((select) => select.value);
+		gendersBox.replaceChildren(
+			...Array.from({ length: count }, (_, i) => {
+				const label = document.createElement('label');
+				label.textContent = `Гість ${i + 1}`;
+				const select = document.createElement('select');
+				select.name = 'gender';
+				select.required = true;
+				select.innerHTML = '<option value="">Стать</option><option value="female">Жінка</option><option value="male">Чоловік</option>';
+				select.value = current[i] ?? '';
+				label.append(select);
+				return label;
+			}),
+		);
+	}
+	if (gendersBox) {
+		field('guests')?.addEventListener('input', renderGenders);
+		renderGenders();
+	}
+
+	function setError(name, text) {
+		const input = field(name);
+		if (input instanceof Element) input.setAttribute('aria-invalid', text ? 'true' : 'false');
+		const slot = form.querySelector(`[data-error-for="${name}"]`);
+		if (slot) slot.textContent = text;
+	}
+
+	function showStatus(state, html) {
+		statusEl.dataset.state = state;
+		statusEl.innerHTML = html;
+	}
+
+	form.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		showStatus('', '');
+		const phone = field('phone').value.trim();
+		const digits = phone.replace(/\D/g, '');
+		setError('phone', digits.length < 9 || digits.length > 15 ? 'Вкажіть номер телефону, щоб ми могли передзвонити.' : '');
+		if (field('checkIn') && field('checkOut')) {
+			const { value: checkIn } = field('checkIn');
+			const { value: checkOut } = field('checkOut');
+			setError('checkOut', checkIn && checkOut && checkOut <= checkIn ? 'Дата виїзду має бути пізніше за дату заїзду.' : '');
+		}
+		const genderSelects = gendersBox ? [...gendersBox.querySelectorAll('select')] : [];
+		if (gendersBox) {
+			const missing = genderSelects.some((select) => !select.value);
+			for (const select of genderSelects) select.setAttribute('aria-invalid', missing && !select.value ? 'true' : 'false');
+			const slot = form.querySelector('[data-error-for="genders"]');
+			if (slot) slot.textContent = missing ? 'Вкажіть стать кожного гостя, щоб ми підібрали місця.' : '';
+		}
+		const invalid = form.querySelector('[aria-invalid=true]');
+		if (invalid) return invalid.focus();
+
+		const thanks = `Дякуємо! Ми зателефонуємо на ${phone.replace(/</g, '')} найближчим часом.`;
+		// Bots fill the hidden field: pretend success, send nothing.
+		if (field('website')?.value) {
+			form.reset();
+			renderGenders();
+			return showStatus('ok', thanks);
+		}
+
+		const lead = { phone, formId, formName: form.dataset.formName, site: SITE, hotelId: HOTEL_ID };
+		for (const name of TEXT_FIELDS) {
+			const value = field(name)?.value?.trim();
+			if (value) lead[name] = value;
+		}
+		const guests = parseInt(field('guests')?.value, 10);
+		if (guests >= 1 && guests <= 50) lead.guests = guests;
+		if (genderSelects.length) lead.genders = genderSelects.map((select) => select.value);
+
+		submit.disabled = true;
+		submit.textContent = 'Надсилаємо…';
+		try {
+			const { lite, store } = await firestore();
+			await lite.addDoc(lite.collection(store, 'submissions'), { ...lead, status: 'new', history: [], createdAt: lite.serverTimestamp() });
+			form.reset();
+			if (field('checkOut')) field('checkOut').min = today;
+			renderGenders();
+			showStatus('ok', thanks);
+		} catch (error) {
+			console.error(error);
+			showStatus('error', `Не вдалося надіслати запит. Зателефонуйте нам: <a href="tel:${PHONE.replace(/[^\d+]/g, '')}">${PHONE}</a>.`);
+		} finally {
+			submit.disabled = false;
+			submit.textContent = submitLabel;
+		}
+	});
+}
+
+document.querySelectorAll('form[data-hotelos]').forEach(setup);
   </script>
 </body>
 </html>
